@@ -1,0 +1,17 @@
+[33mcommit ec657164670c59904de95287dc42eb8016295897[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: ronCohen2 <ronc665@gmail.com>
+Date:   Tue Jan 7 17:14:54 2020 +0200
+
+    add layout component and render character
+
+[33mcommit 14ef6279bf5daf1a3abc61a113fe5252bae538f5[m
+Author: ronCohen2 <ronc665@gmail.com>
+Date:   Tue Jan 7 16:27:46 2020 +0200
+
+    init commit
+
+[33mcommit 94acc418acc8d2420e2b0db2cab04525dc096327[m
+Author: ronCohen2 <ronc665@gmail.com>
+Date:   Tue Jan 7 16:24:46 2020 +0200
+
+    Initial commit from Create Next App

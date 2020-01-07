@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Layout from "../components/Layout";
 import axios from "axios";
+import Link from "next/link";
 
 const Home = props => {
   const { results } = props.data;
@@ -9,13 +10,16 @@ const Home = props => {
     <Layout>
       <h1>hi</h1>
       {results.map(character => {
+        const { id, image, name, gender, status } = character;
         return (
-          <div>
-            <img src={character.image} />
-            <div> name : {character.name}</div>
-            <div>gender :{character.gender}</div>
-            <div> status :{character.status}</div>
-          </div>
+          <Link href={`/Character/[id]}`} as={`/Character/${id}`}>
+            <div key={id}>
+              <img src={image} />
+              <div> name : {name}</div>
+              <div>gender :{gender}</div>
+              <div> status :{status}</div>
+            </div>
+          </Link>
         );
       })}
     </Layout>

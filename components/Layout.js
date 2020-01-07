@@ -1,11 +1,14 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
+import Link from "next/link";
 
 const Layout = props => {
   return (
     <div>
       <nav>
-        <span>Home</span>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
         <TextField
           className="nav-search"
           id="outlined"
