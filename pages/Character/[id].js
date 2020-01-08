@@ -2,19 +2,19 @@ import React from "react";
 import { useRouter } from "next/router";
 import Axios from "axios";
 import Layout from "../../components/Layout";
+import CharacterCard from "../../components/CaracterCard";
 const Character = props => {
-  const router = useRouter();
   const { character } = props;
   const { id, image, name, gender, status } = character;
-
   return (
     <Layout>
-      <div key={id}>
-        <img src={image} />
-        <div> name : {name}</div>
-        <div>gender :{gender}</div>
-        <div> status :{status}</div>
-      </div>
+      <CharacterCard
+        id={id}
+        image={image}
+        name={name}
+        gender={gender}
+        status={status}
+      />
     </Layout>
   );
 };
