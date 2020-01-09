@@ -3,13 +3,11 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import CharacterCard from "../../components/CaracterCard";
 import Layout from "../../components/Layout";
-import { Grid, Container as ContainerG } from "@material-ui/core";
-import Container from "@material-ui/core/Container";
+import { Grid, Container } from "@material-ui/core";
 
 const Search = props => {
   const Router = useRouter();
   const { data } = props;
-  console.log(data);
   // const name = Router.query.name;
   // const [data, setData] = useState(null);
 
@@ -32,28 +30,26 @@ const Search = props => {
 
   return (
     <Layout>
-      <Container>
-        <Grid ContainerG spacing={1}>
-          {data ? (
-            data.map(character => {
-              const { id, image, name, gender, status } = character;
-              return (
-                <CharacterCard
-                  id={id}
-                  image={image}
-                  name={name}
-                  gender={gender}
-                  status={status}
-                  size={4}
-                  Search={true}
-                />
-              );
-            })
-          ) : (
-            <p>no charcter</p>
-          )}
-        </Grid>
-      </Container>
+      <Grid container spacing={1}>
+        {data ? (
+          data.map(character => {
+            const { id, image, name, gender, status } = character;
+            return (
+              <CharacterCard
+                id={id}
+                image={image}
+                name={name}
+                gender={gender}
+                status={status}
+                size={4}
+                search={true}
+              />
+            );
+          })
+        ) : (
+          <p>no charcter</p>
+        )}
+      </Grid>
     </Layout>
   );
 };

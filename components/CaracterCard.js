@@ -26,12 +26,10 @@ const CharacterCard = ({
   toggle,
   showAll,
   size,
-  Search
+  search
 }) => {
   const classes = useStyles();
-  console.log(Search);
   const ShowCaracterDetails = () => {
-    console.log("set");
     SetDetails({ id, image, name, gender, status });
     toggle(false);
   };
@@ -68,7 +66,16 @@ const CharacterCard = ({
               Learn More
             </Button>
           ) : (
-            <Button size="small" color="primary" onClick={() => toggle(true)}>
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => {
+                if (search) {
+                  return Router.push("/");
+                }
+                toggle(true);
+              }}
+            >
               Show All
             </Button>
           )}
