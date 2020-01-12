@@ -5,7 +5,8 @@ const dev = process.env.NODE.ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const server = express();
-const apiRouter = require("./router/index");
+const ViewRouter = require("./router/ViewRouter");
+const ApiRouter = require("./router/ApiRouter");
 const db = require("./db");
 var bodyParser = require("body-parser");
 server.use(bodyParser.json());
@@ -13,9 +14,10 @@ app
   .prepare()
   .then(() => {
     server.use(bodyParser.json());
-    server.use(bodyParser.raw({ type: "application/vnd.custom-type" }));
+    server.use(bodyParser.urlencoded({ extended: false }));
 
-    server.use("/", apiRouter);
+    server.use("/", ViewRouter);
+    server.use("/api/", ApiRouter);
 
     server.get("*", (req, res) => {
       return handle(req, res);
